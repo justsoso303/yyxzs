@@ -1,0 +1,19 @@
+<!--pages/score/scorewarning.wxml-->
+<text class='head_1'>早期预警评分</text>
+<form bindsubmit='submitCaculate'>
+<block wx:for="{{arrData}}" wx:key="key" wx:for-item="item" wx:for-index="idx">
+  <view>
+    <text>{{item.name}}</text>
+  </view>
+  <radio-group id="{{item.code}}" name="{{item.code}}" class="radio-group">
+    <block wx:for="{{item.items}}" wx:key="itemKey" wx:for-item="itemValue" wx:for-index="idxValue">
+      <view class='check-box'>
+          <radio value="{{itemValue.value}}" checked="{{itemValue.checked}}" color='#1e82d2'>
+            <text decode='false'>{{itemValue.text}}</text>
+          </radio>
+      </view>
+    </block>
+  </radio-group>
+</block>
+<button type='primary' form-type='submit'>提交计算</button>
+</form>
